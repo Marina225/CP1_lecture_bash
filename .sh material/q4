@@ -1,0 +1,29 @@
+#! /bin/bash
+
+if [ $# -eq 3 ]
+then
+	case $2 in
+	+)
+		expr $1 + $3
+		;;
+	-)
+		expr $1 - $3
+		;;
+	x)
+		expr $1 \* $3
+		;;
+	/)
+		if [ $3 -ne 0 ]
+		then
+			expr $1 / $3
+		else 
+			echo "Divison with 0 is not possible"
+		fi
+		;;
+	*)
+		echo "please input either / x + - as a second argument"
+		;;
+	esac
+else
+	echo -e "Exactly 3 arguments need to provided to the script $0. \nAs shown in the example: 2 x 5"
+fi
